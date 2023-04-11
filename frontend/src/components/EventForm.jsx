@@ -1,16 +1,17 @@
 import {
 	Form,
+	useNavigate,
+	useNavigation,
+	useActionData,
 	json,
 	redirect,
-	useActionData,
-	useNavigation,
 } from "react-router-dom";
 
 import classes from "./EventForm.module.scss";
 
 function EventForm({ method, event }) {
 	const data = useActionData();
-	const navigate = useNavigation();
+	const navigate = useNavigate();
 	const navigation = useNavigation();
 
 	const isSubmitting = navigation.state === "submitting";
@@ -82,7 +83,7 @@ function EventForm({ method, event }) {
 
 export default EventForm;
 
-export const action = async ({ request, params }) => {
+export async function action({ request, params }) {
 	const method = request.method;
 	const data = await request.formData();
 
@@ -108,13 +109,13 @@ export const action = async ({ request, params }) => {
 		body: JSON.stringify(eventData),
 	});
 
-	if (!response.status === 422) {
+	if (response.status === 422) {
 		return response;
 	}
 
 	if (!response.ok) {
-		throw json({ message: "Could not save event" }, { status: 500 });
+		throw json({ message: "Could not save event." }, { status: 500 });
 	}
 
 	return redirect("/events");
-};
+}
