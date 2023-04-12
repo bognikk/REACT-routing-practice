@@ -1,8 +1,10 @@
 import { Link, useSubmit } from "react-router-dom";
+
 import classes from "./EventItem.module.scss";
 
 function EventItem({ event }) {
 	const submit = useSubmit();
+
 	function startDeleteHandler() {
 		const proceed = window.confirm("Are you sure?");
 

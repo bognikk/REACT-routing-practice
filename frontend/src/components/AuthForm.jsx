@@ -1,9 +1,9 @@
 import {
 	Form,
 	Link,
+	useSearchParams,
 	useActionData,
 	useNavigation,
-	useSearchParams,
 } from "react-router-dom";
 
 import classes from "./AuthForm.module.scss";

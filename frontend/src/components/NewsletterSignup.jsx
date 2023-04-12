@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useFetcher } from "react-router-dom";
+
 import classes from "./NewsletterSignup.module.scss";
 
 function NewsletterSignup() {

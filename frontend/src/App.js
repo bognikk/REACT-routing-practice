@@ -58,14 +58,14 @@ const router = createBrowserRouter([
 				],
 			},
 			{
-				path: "newsletter",
-				element: <NewsletterPage />,
-				action: newsletterAction,
-			},
-			{
 				path: "auth",
 				element: <AuthenticationPage />,
 				action: authAction,
+			},
+			{
+				path: "newsletter",
+				element: <NewsletterPage />,
+				action: newsletterAction,
 			},
 		],
 	},
